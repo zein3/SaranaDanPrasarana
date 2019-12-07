@@ -48,7 +48,7 @@
 				</p>
 				<p>
 					<label><b>Nama Barang:</b></label>
-					<input class="w3-input w3-border w3-round" id="p_nama_b" name="nama_barang" type="text" redonly>
+					<input class="w3-input w3-border w3-round" id="p_nama_b" name="nama_barang" type="text" readonly>
 				</p>
 				<p>
 					<label><b>Jumlah Barang:</b></label>
