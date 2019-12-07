@@ -25,7 +25,8 @@
 			echo "<td>" . $data['kondisi'] . "</td>";
 			echo "<td>" . $data['jumlah_barang'] . "</td>";
 			echo "<td>" . $data['sumber_dana'] . "</td>";
-			echo "<td><button class='w3-button w3-blue w3-hover-red' onclick='pinjam(" . $data['id_barang'] . ")'>Pinjam</button>" . "</td>";
+			echo "<td><button class='w3-button w3-blue w3-hover-red' 
+			onclick='pinjam(" . $data['id_barang'] . ", " . '"' . $data['nama_barang'] . '"' . ")'>Pinjam</button></td>";
 			echo "</tr>";
 		}
 
@@ -44,6 +45,10 @@
 				<p>
 					<label><b>ID Barang:</b></label>
 					<input class="w3-input w3-border w3-round" id="p_id_b" name="id" type="text" readonly>
+				</p>
+				<p>
+					<label><b>Nama Barang:</b></label>
+					<input class="w3-input w3-border w3-round" id="p_nama_b" name="nama_barang" type="text" redonly>
 				</p>
 				<p>
 					<label><b>Jumlah Barang:</b></label>
@@ -65,9 +70,10 @@
 </div>
 
 <script>
-function pinjam(id, jumlah_barang)
+function pinjam(id, nama, jumlah_barang)
 {
 	document.getElementById('pinjamModal').style.display='block';
 	document.getElementById('p_id_b').value = id;
+	document.getElementById('p_nama_b').value = nama; // Memasukkan Nama Barang
 }
 </script>
