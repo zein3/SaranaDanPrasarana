@@ -1,7 +1,7 @@
 <h1 class="w3-center">Data Barang</h1>
 <div class="w3-cell-row">
 	<!-- form -->
-	<div class="w3-cell w3-card-4">
+	<div class="w3-cell w3-card-4" <?php if ($_SESSION['level'] == "manajemen") { echo "style='display: none;'"; } ?>>
 		<form class="w3-container" action="data_barang_aksi.php" method="post">
 			<p>
 				<label><b>ID Barang:</b></label>
