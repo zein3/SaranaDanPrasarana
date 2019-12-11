@@ -60,6 +60,10 @@ if (isset($_GET['err']))
     {
     	echo '<button class="w3-bar-item w3-button w3-hover-blue tablink" onclick="' . "openTab(event, 'laporan')" . '">Generate laporan</button>';
     }
+    if ($_SESSION['level'] == "manajemen" || $_SESSION['level'] == "admin")
+    {
+    	echo '<button id="supplier_btn" class="w3-bar-item w3-button w3-hover-blue tablink" onclick="' . "openTab(event, 'supplier')" . '">Data Supplier</button>';
+    }
 
     ?>
 
@@ -125,6 +129,15 @@ if (isset($_GET['err']))
 		?>
 	</div> 
 
+	<div id="supplier" class="w3-container tab w3-animate-opacity" style="display: none;">
+		<?php
+			if ($_SESSION['level'] == "admin" || $_SESSION['level'] == "manajemen")
+			{
+				include 'supplier.php';
+			}
+		?>
+	</div>
+
 </div>
 
 <script type="text/javascript">
@@ -181,6 +194,7 @@ if (isset($_GET['s']))
 	if ($s == 'p')
 	{
 		echo "<script> openTab('peminjaman_btn', 'peminjaman'); </script>";
+		echo "<script>alert('Berhasil meminjam barang');</script>";
 	}
 }
 

@@ -1,7 +1,7 @@
 <h1 class="w3-center">Data Barang</h1>
 <div class="w3-cell-row">
 	<!-- form -->
-	<div class="w3-cell w3-card-4" <?php if ($_SESSION['level'] == "manajemen") { echo "style='display: none;'"; } ?>>
+	<div class="w3-cell w3-card-4" <?php if ($_SESSION['level'] == "manajemen") { echo "style='display: none;'"; /* Menghilangkan bagian input jika login sebagai manajer */ } ?>>
 		<form class="w3-container" action="data_barang_aksi.php" method="post">
 			<p>
 				<label><b>ID Barang:</b></label>
@@ -36,13 +36,6 @@
 				<button class="w3-bar-item w3-button w3-black" name="add">Tambah</button>
 				<button class="w3-bar-item w3-button w3-teal" name="edit">Ubah</button>
 				<button class="w3-bar-item w3-button w3-red" name="delete">Hapus</button>
-				<!--<button onclick="printTable('toPrint')" class="w3-bar-item w3-button w3-blue" name="print">Print</button>
-				<?php
-				/*if ($_SESSION['level'] == "manajemen")
-				{
-					echo '<button onclick="printTable(' . '"toPrint"' . ')" class="w3-bar-item w3-button w3-blue" name="print">Print</button>';
-				}*/
-				?>-->
 			</div>
 
 			<br/>
