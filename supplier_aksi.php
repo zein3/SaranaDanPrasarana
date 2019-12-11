@@ -23,7 +23,7 @@ if (isset($_POST['add']))
 	}
 }
 
-if (isset($_POSTp['edit']))
+if (isset($_POST['edit']))
 {
 	$id = mysqli_real_escape_string($con, $_POST['s_id']);
 	$nama = mysqli_real_escape_string($con, $_POST['s_nama']);
@@ -42,7 +42,7 @@ if (isset($_POSTp['edit']))
 
 	if (mysqli_query($con, $query))
 	{
-		header('Location.php?s=s');
+		header('Location: main.php?s=s');
 	}
 }
 

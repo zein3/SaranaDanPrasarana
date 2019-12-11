@@ -8,15 +8,15 @@
 			</p>
 			<p>
 				<label><b>Nama Supplier:</b></label>
-				<input class="w3-input w3-border w3-round" name="s_nama" id="s_id" type="text">
+				<input class="w3-input w3-border w3-round" name="s_nama" id="s_nama" type="text">
 			</p>
 			<p>
 				<label><b>Alamat Supplier:</b></label>
-				<input class="w3-input w3-border w3-round" name="s_alamat" id="s_alamat">
+				<input class="w3-input w3-border w3-round" name="s_alamat" id="s_alamat" type="text">
 			</p>
 			<p>
 				<label><b>Telepon Supplier:</b></label>
-				<input class="w3-input w3-border w3-round" name="s_telp" id="s_telp">
+				<input class="w3-input w3-border w3-round" name="s_telp" id="s_telp" placeholder="0812-3456-7890">
 			</p>
 
 			<div class="bar">
