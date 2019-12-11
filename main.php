@@ -196,6 +196,10 @@ if (isset($_GET['s']))
 		echo "<script> openTab('peminjaman_btn', 'peminjaman'); </script>";
 		echo "<script>alert('Berhasil meminjam barang');</script>";
 	}
+	if ($s == 's')
+	{
+		echo "<script> openTab('supplier_btn', 'supplier'); </script>";
+	}
 }
 
 ?>
