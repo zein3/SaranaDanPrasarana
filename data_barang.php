@@ -81,6 +81,7 @@
 				<th>Kondisi</th>
 				<th>Jumlah</th>
 				<th>Sumber dana</th>
+				<th>ID Supplier</th>
 			</tr>
 			<?php
 
@@ -88,6 +89,9 @@
 			$query = mysqli_query($con, "Select * From barang");
 			while ($data = mysqli_fetch_array($query))
 			{
+				$id_b = $data['id_barang'];
+				$querySupplier = mysqli_query($con, "Select id_supplier From barang_masuk Where id_barang='$id_b'");
+				$supplier = mysqli_fetch_assoc($querySupplier);
 				echo "<tr>";
 				echo "<td>" . $data['id_barang'] . "</td>";
 				echo "<td>" . $data['nama_barang'] . "</td>";
@@ -96,6 +100,7 @@
 				echo "<td>" . $data['kondisi'] . "</td>";
 				echo "<td>" . $data['jumlah_barang'] . "</td>";
 				echo "<td>" . $data['sumber_dana'] . "</td>";
+				echo "<td>" . $supplier['id_supplier'] . "</td>";
 				echo "</tr>";
 			}
 
@@ -118,6 +123,10 @@
 			document.getElementById("d_kondisi").value = this.cells[4].innerHTML;
 			document.getElementById("d_jumlah").value = this.cells[5].innerHTML;
 			document.getElementById("d_sumberdana").value = this.cells[6].innerHTML;
+			document.getElementById("d_id_s").value = this.cells[7].innerHTML;
+
+			var id_sup = this.cells[7].innerHTML;
+			document.getElementById('d_nama_s').value = document.getElementById('d_id_s_' + id_sup).innerHTML;
 		}
 	}
 
