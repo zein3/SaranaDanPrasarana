@@ -10,6 +10,7 @@ if (isset($_POST['add']))
 	$kondisi = mysqli_real_escape_string($con, $_POST['d_kondisi']);
 	$jumlah = mysqli_real_escape_string($con, $_POST['d_jumlah']);
 	$sumberdana = mysqli_real_escape_string($con, $_POST['d_sumberdana']);
+	$id_supplier = mysqli_real_escape_string($con, $_POST['d_id_s']);
 
 	if ($nama == null || $spek == null || $lokasi == null || $kondisi == null || $jumlah == null || $sumberdana == null)
 	{
@@ -28,7 +29,14 @@ if (isset($_POST['add']))
 
 		if (mysqli_query($con, $stokUpdateQuery))
 		{
-			header('Location: main.php?s=d');
+			$tgl_masuk = date("d-m-Y");
+			$barangMasukQuery = "Insert Into barang_masuk (id_barang, nama_barang, tgl_masuk, jml_masuk, id_supplier)
+								 Values ('$lastId', '$nama', '$tgl_masuk', '$jumlah', '$id_supplier')";
+
+			if (mysqli_query($con, $barangMasukQuery))
+			{
+				header('Location: main.php?s=d');
+			}
 		}
 	}
 }
@@ -42,6 +50,7 @@ if (isset($_POST['edit']))
 	$kondisi = mysqli_real_escape_string($con, $_POST['d_kondisi']);
 	$jumlah = mysqli_real_escape_string($con, $_POST['d_jumlah']);
 	$sumberdana = mysqli_real_escape_string($con, $_POST['d_sumberdana']);
+	$id_supplier = mysqli_real_escape_string($con, $_POST['d_id_s']);
 
 	if ($id == null || $nama == null || $spek == null || $lokasi == null || $kondisi == null || $jumlah == null || $sumberdana == null)
 	{
@@ -58,7 +67,12 @@ if (isset($_POST['edit']))
 		$stokUpdateQuery = "Update stok Set nama_barang='$nama', jml_masuk='$jumlah', total_barang='$jumlah' Where id_barang='$id'";
 		if (mysqli_query($con, $stokUpdateQuery))
 		{
-			header('Location: main.php?s=d');
+			$barangMasukQuery = "Update barang_masuk Set nama_barang='$nama', jml_masuk='$jumlah', id_supplier='$id_supplier' Where id_barang='$id'";
+
+			if (mysqli_query($con, $barangMasukQuery))
+			{
+				header('Location: main.php?s=d');
+			}
 		}
 	}
 }
