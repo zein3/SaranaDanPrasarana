@@ -31,6 +31,34 @@
 				<label><b>Sumber Dana:</b></label>
 				<input class="w3-input w3-border w3-round" name="d_sumberdana" id="d_sumberdana" type="text">
 			</p>
+			<p>
+				<label><b>ID Supplier:</b></label>
+				<select class="w3-select w3-border w3-round" name="d_id_s" id="d_id_s">
+					<?php
+
+					require('connection.php');
+					$query = mysqli_query($con, "Select * From supplier");
+					while ($data = mysqli_fetch_array($query))
+					{
+						echo '<option value="' . $data['id_supplier'] . '">' . $data['id_supplier'] . '</option>';
+					}
+
+					?>
+				</select>
+			</p>
+			<p>
+				<label><b>Nama Supplier:</b></label>
+				<input class="w3-input w3-border w3-round" name="d_nama_s" id="d_nama_s" type="text" readonly>
+				<?php
+
+				$query = mysqli_query($con, "Select * From supplier");
+				while ($data = mysqli_fetch_array($query))
+				{
+					echo "<p style='display: none;' id='d_id_s_" . $data['id_supplier'] . "'>" . $data['nama_supplier'] . "</p>";
+				}
+
+				?>
+			</p>
 
 			<div class="bar">
 				<button class="w3-bar-item w3-button w3-black" name="add">Tambah</button>
@@ -93,13 +121,12 @@
 		}
 	}
 
-	/*function printTable (divName)
-	{
-		var printContents = document.getElementById(divName).innerHTML;
-		var originalContents = document.body.innerHTML;
+	var id = document.getElementById('d_id_s').value.toString();
+	document.getElementById('d_nama_s').value = document.getElementById('d_id_s_' + id).innerHTML;
 
-		document.body.innerHTML = printContents;
-		window.print();
-		document.body.innerHTML = originalContents;
-	}*/
+	document.getElementById('d_id_s').addEventListener("input", function(evt) 
+	{
+		var id = document.getElementById('d_id_s').value.toString();
+		document.getElementById('d_nama_s').value = document.getElementById('d_id_s_' + id).innerHTML;
+	}, false);
 </script>

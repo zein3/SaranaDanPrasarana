@@ -147,6 +147,10 @@
 		}
 	}
 
+	var id = document.getElementById("p_id_b").value.toString();
+	document.getElementById("p_nama_b").value = document.getElementById("p_id_barang_" + id).innerHTML;
+	document.getElementById("p_kondisi").value = document.getElementById("p_id_kondisi_" + id).innerHTML;
+
 	document.getElementById("p_id_b").addEventListener("input", function(evt)
 	{
 		var id = document.getElementById("p_id_b").value.toString();
