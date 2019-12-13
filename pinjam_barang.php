@@ -2,6 +2,7 @@
 
 session_start();
 require('connection.php');
+include 'stok.php';
 
 // variable dari form
 $id = mysqli_real_escape_string($con, $_POST['id']);
@@ -41,8 +42,7 @@ if (mysqli_query($con, $query))
 
 	if (mysqli_query($con, $query))
 	{
-		include 'stok.php';
-		//updateStok($id);
+		updateStok($id);
 		header('Location: main.php?s=p');
 
 		/*

@@ -1,6 +1,7 @@
 <?php
 
 require('connection.php');
+include 'stok.php';
 
 if (isset($_POST['add']))
 {
@@ -35,6 +36,7 @@ if (isset($_POST['add']))
 
 			if (mysqli_query($con, $barangMasukQuery))
 			{
+				//updateStok($lastId);
 				header('Location: main.php?s=d');
 			}
 		}
@@ -71,6 +73,7 @@ if (isset($_POST['edit']))
 
 			if (mysqli_query($con, $barangMasukQuery))
 			{
+				updateStok($id);
 				header('Location: main.php?s=d');
 			}
 		}

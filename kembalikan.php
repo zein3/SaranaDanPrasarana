@@ -1,6 +1,7 @@
 <?php
 
 require('connection.php');
+include 'stok.php';
 if (isset($_GET['id']))
 {
 	$id_pinjam = $_GET['id'];
@@ -20,8 +21,7 @@ if (isset($_GET['id']))
 
 	if (mysqli_query($con, $query))
 	{
-		include 'stok.php';
-		//updateStok($id);
+		updateStok($id);
 		header('Location: main.php');
 	}
 }
