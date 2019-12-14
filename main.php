@@ -52,13 +52,13 @@ if (isset($_GET['err']))
     {
     	echo '<button class="w3-bar-item w3-button w3-hover-blue tablink" onclick="' . "openTab(event, 'my_barang')" . '">Barang yg dipinjam</button>';
     }
-    if ($_SESSION['level'] == "admin" || $_SESSION['level'] == "manajemen")
-    {
-    	echo '<button id="data_btn" class="w3-bar-item w3-button w3-hover-blue tablink" onclick="' . "openTab(event, 'data')" . '">Data Barang</button>';
-    }
     if ($_SESSION['level'] == "manajemen")
     {
     	echo '<button class="w3-bar-item w3-button w3-hover-blue tablink" onclick="' . "openTab(event, 'laporan')" . '">Generate laporan</button>';
+    }
+    if ($_SESSION['level'] == "admin" || $_SESSION['level'] == "manajemen")
+    {
+    	echo '<button id="data_btn" class="w3-bar-item w3-button w3-hover-blue tablink" onclick="' . "openTab(event, 'data')" . '">Data Barang</button>';
     }
     if ($_SESSION['level'] == "manajemen" || $_SESSION['level'] == "admin")
     {

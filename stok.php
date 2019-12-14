@@ -47,6 +47,11 @@ function updateStok ($id)
 	$brg_keluar = mysqli_fetch_assoc(mysqli_query($con, $query));
 	$jml_keluar = $brg_keluar['total_keluar'];
 
+	if ($jml_keluar == null)
+	{
+		$jml_keluar = 0;
+	}
+
 	print_r($brg_keluar);
 	echo "<br/>";
 	echo $jml_keluar;

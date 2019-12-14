@@ -6,6 +6,10 @@
 		<option value="barang_print">Data Barang</option>
 		<option value="pinjam_print">Peminjaman Barang</option>
 		<option value="user_print">User</option>
+		<option value="supplier_print">Supplier</option>
+		<option value="stok_print">Stok</option>
+		<option value="masuk_print">Barang Masuk</option>
+		<option value="keluar_print">Barang Keluar</option>
 	</select>
 	<br></br>
 	<button class="w3-button w3-black" onclick="printDocument()">Print</button>
@@ -15,6 +19,10 @@
 			include 'documents/data_barang.php';
 			include 'documents/pinjam_barang.php';
 			include 'documents/user.php';
+			include 'documents/supplier.php';
+			include 'documents/stok.php';
+			include 'documents/barang_masuk.php';
+			include 'documents/barang_keluar.php';
 		?>
 	</div>
 </div>
