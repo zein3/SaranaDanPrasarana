@@ -80,7 +80,7 @@ if (isset($_GET['err']))
 	
 		<div class="w3-container w3-flat-midnight-blue w3-cell w3-right-align">
 			<h1>Sarana dan Prasarana SMK YAJ</h1>
-			<h3>Selamat datang, <?php echo $_SESSION['name']; ?></h3>
+			<h3>Selamat datang, <?php echo $_SESSION['name']; ?>. Anda telah login sebagai <?php echo $_SESSION['level']; ?></h3>
 		</div>
 	</div>
 
