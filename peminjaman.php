@@ -17,13 +17,17 @@
 		$query = mysqli_query($con, "Select * From barang");
 		while ($data = mysqli_fetch_array($query))
 		{
+			$temp_id = $data['id_barang'];
+			$total_barang = mysqli_query($con, "Select total_barang From stok Where id_barang='$temp_id'");
+			$data_total_barang = mysqli_fetch_assoc($total_barang);
+
 			echo "<tr>";
 			echo "<td>" . $data['id_barang'] . "</td>";
 			echo "<td>" . $data['nama_barang'] . "</td>";
 			echo "<td>" . $data['spesifikasi'] . "</td>";
 			echo "<td>" . $data['lokasi'] . "</td>";
 			echo "<td>" . $data['kondisi'] . "</td>";
-			echo "<td>" . $data['jumlah_barang'] . "</td>";
+			echo "<td>" . $data_total_barang['total_barang'] . "</td>";
 			echo "<td>" . $data['sumber_dana'] . "</td>";
 			echo "<td><button class='w3-button w3-blue w3-hover-red' 
 			onclick='pinjam(" . $data['id_barang'] . ", " . '"' . $data['nama_barang'] . '"' . ")'>Pinjam</button></td>";

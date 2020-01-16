@@ -35,8 +35,6 @@ $query = "Insert Into pinjam_barang (peminjam, tgl_pinjam, id_barang, nama_baran
 //echo $query;
 if (mysqli_query($con, $query))
 {
-	//header('Location: main.php?s=p');
-
 	$query = "Insert Into barang_keluar (id_barang, nama_barang, tgl_keluar, jml_keluar, lokasi, penerima)
 			  Value ($id, '$nama_barang', '$tgl_pinjam', '$jumlah', '$lokasi', '$peminjam')";
 
@@ -44,18 +42,6 @@ if (mysqli_query($con, $query))
 	{
 		updateStok($id);
 		header('Location: main.php?s=p');
-
-		/*
-		// Mengambil Data stok
-		$data_stok = mysqli_query($con, "Select * From stok Where id_barang='$id'");
-
-		// Simpan data dari stok ke Variable
-		$stok_totalBarang = $data_stok['total_barang'];
-		$stok_jmlMasuk = $data_stok['jml_masuk'];
-		$stok_jmlKeluar = $data_stok['jml_keluar'];
-
-		// Kalkulasi data stok yang baru
-		$newStok_totalBarang = $stok_totalBarang - $jumlah; */
 	}
 }
 
