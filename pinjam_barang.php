@@ -20,12 +20,21 @@ $nama_barang = $data['nama_barang'];
 $kondisi = $data['kondisi'];
 $lokasi = $data['lokasi'];
 
-// Mengecek isi form apakah bisa diterima database atau tidak
+// Mengambil data stok barang
+$stok_barang = mysqli_query($con, "Select total_barang From stok Where id_barang='$id'");
+$data_stok = mysqli_fetch_assoc($stok_barang);
+
+// variable dari stok barang
+$total_stok = $data_stok['total_barang'];
+
+// Mengubah format tanggal agar bisa dimasukkan ke database
 $date_now = date("Y-m-d");
 $date_form = date("Y-m-d", strtotime($_POST['kembali']));
-if ($jumlah == null || $date_now > $date_form)
+
+// Mengecek Error
+if ($jumlah == null || $date_now > $date_form || $jumlah > $total_stok)
 {
-	header('Location: main.php?s=p&err=true');
+	header('Location: main.php?err=true');
 	return;
 }
 
