@@ -27,7 +27,7 @@ $data_stok = mysqli_fetch_assoc($stok_barang);
 // variable dari stok barang
 $total_stok = $data_stok['total_barang'];
 
-// Mengubah format tanggal agar bisa dimasukkan ke database
+// Membuat variable dengan format tanggal yang bisa dibandingkan
 $date_now = date("Y-m-d");
 $date_form = date("Y-m-d", strtotime($_POST['kembali']));
 
